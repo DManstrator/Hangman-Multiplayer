@@ -3,4 +3,4 @@
  * @author DManstrator
  *
  */
-package tk.dmanstrator;
+package tk.dmanstrator.hangman;
