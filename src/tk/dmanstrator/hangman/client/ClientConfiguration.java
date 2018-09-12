@@ -17,6 +17,11 @@ import org.json.JSONObject;
 public class ClientConfiguration {
     
     /**
+     * Name of Configuration File.
+     */
+    private final static String CONFIGNAME = "config.json";
+    
+    /**
      * (Nick)name of the Client.
      */
     private final String name;
@@ -44,7 +49,7 @@ public class ClientConfiguration {
     public ClientConfiguration() {
         String fileContent = "";
         try {
-            fileContent = Files.readAllLines(Paths.get("config.json")).stream().collect(Collectors.joining(System.lineSeparator()));
+            fileContent = Files.readAllLines(Paths.get(CONFIGNAME)).stream().collect(Collectors.joining(System.lineSeparator()));
         } catch (IOException e) {
         }
         if (!fileContent.isEmpty())  {
@@ -78,7 +83,7 @@ public class ClientConfiguration {
         config.put("server_ip", ipAddr);
         config.put("server_port", port);
         
-        File file = new File("config.json");
+        File file = new File(CONFIGNAME);
         try  {
             file.createNewFile();
             FileWriter fileWriter = new FileWriter(file);

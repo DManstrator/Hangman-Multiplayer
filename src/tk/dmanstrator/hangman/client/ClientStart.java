@@ -7,6 +7,7 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.net.SocketException;
 import java.net.SocketTimeoutException;
 
 /**
@@ -16,6 +17,11 @@ import java.net.SocketTimeoutException;
  *
  */
 public class ClientStart implements Runnable  {
+    
+    /**
+     * Amount of milliseconds to wait before a Timeout occures.
+     */
+    private final static int TIMEOUT = 2500;
 
     /**
      * Name of the player.
@@ -47,7 +53,7 @@ public class ClientStart implements Runnable  {
         boolean worked = false;  // lazy workaround
         try {
             socket = new Socket();
-            socket.connect(new InetSocketAddress(ipAddr, port), 2500);
+            socket.connect(new InetSocketAddress(ipAddr, port), TIMEOUT);
             worked = true;
         } catch (SocketTimeoutException ex)  {
             hangmanClient.cancelGui();
@@ -98,6 +104,10 @@ public class ClientStart implements Runnable  {
         while (true)  {
             try {
                 receive();
+            } catch (SocketException ex)  {
+                System.out.println("Server was shut down!");
+                // TODO inform client that Server shut down
+                System.exit(-1);
             } catch (IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
