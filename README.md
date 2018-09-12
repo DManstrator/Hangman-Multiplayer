@@ -21,6 +21,9 @@ Here some pictures that you know how the GUI looks like:
 ![Main Menu on Server Start](img/server-menu.png)<br />
 ![Server is running](img/server-info.png)
 
+### Icons
+![Icons in the Task-Bar](img/icons-taskbar.png)
+
 ## FAQ
 - Q: How to play?<br />
   A: Read the text above. ;)

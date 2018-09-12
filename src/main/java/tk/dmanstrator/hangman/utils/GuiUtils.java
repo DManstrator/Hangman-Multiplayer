@@ -9,6 +9,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Modality;
@@ -51,6 +52,8 @@ public class GuiUtils {
         
         Scene scene = new Scene(layout, 500, 150);
         window.setScene(scene);
+        Image icon = new Image(getClass().getClassLoader().getResourceAsStream("img/logo_client.png"));
+        window.getIcons().add(icon);
         window.showAndWait();
     }
     

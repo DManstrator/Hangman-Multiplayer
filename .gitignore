@@ -1,1 +1,4 @@
 /bin/
+/src/main/resources/*
+config.json
+serverconfig.json

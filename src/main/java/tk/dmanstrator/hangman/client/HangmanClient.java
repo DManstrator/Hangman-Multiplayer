@@ -12,6 +12,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -221,6 +222,8 @@ public class HangmanClient extends Application  {
         // Start
         primaryStage.setScene(mainScene);
         primaryStage.setTitle("Hangman-Multiplayer");
+        Image icon = new Image(getClass().getClassLoader().getResourceAsStream("img/logo_client.png"));
+        primaryStage.getIcons().add(icon);
         primaryStage.show();
         
         primaryStage.setOnCloseRequest(t ->  {
