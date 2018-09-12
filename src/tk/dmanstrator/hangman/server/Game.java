@@ -8,6 +8,11 @@ import java.util.stream.Collectors;
 import tk.dmanstrator.hangman.client.Client;
 import tk.dmanstrator.hangman.client.ClientConnection;
 
+/**
+ * Class represents a Hangman Game.
+ * @author DManstrator
+ *
+ */
 public class Game extends Thread {
 
     /**
@@ -85,7 +90,7 @@ public class Game extends Thread {
         // initializing
         String msgToPlayer2 = ", the game starts in " + WAIT + " seconds!";
         String msgToPlayer1 = "Player 2 has joined" + msgToPlayer2;
-        msgToPlayer2 = "Welcome to the Quiz" + msgToPlayer2;
+        msgToPlayer2 = "Welcome to Hangman" + msgToPlayer2;
         
         firstClient.getClientConnection().send(msgToPlayer1);
         secondClient.getClientConnection().send(msgToPlayer2);
